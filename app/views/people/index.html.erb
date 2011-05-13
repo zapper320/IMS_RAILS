@@ -1,14 +1,18 @@
+
 <center>
   <fieldset>
     <legend>Interview Management System</legend>
     <table id="customers">
-      <% if @user %>
-         <tr><th><center>Please Select From The Menu Above</th></tr>
-        <tr><td><img src="images/intro.gif"/></td></tr>
-          <% end %>
+      <%if @user%>
+        <tr><th><center>Please Select From The Menu Above</th></tr>
+        <tr><td><%= image_tag("intro.gif")%></td></tr>
+      <%else%>
         <br></br><br></br><br></br><br></br><br></br>
-<img src="images/intro.gif"/>
+        <%= image_tag("intro.gif")%>
+
+        </center>
+
+      <%end%>
     </table>
 </center>
 </fieldset>
-
