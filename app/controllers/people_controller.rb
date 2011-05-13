@@ -1,4 +1,4 @@
-require 'swf_fu'
+
 class PeopleController < ApplicationController
   before_filter :ensure_login, :only => [:edit, :update, :destroy]
   before_filter :ensure_logout, :only => [:new, :create]
