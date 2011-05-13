@@ -1,0 +1,104 @@
+<script>
+	$(function() {
+		$( "#datepicker" ).datepicker();
+	});
+	</script>
+
+
+
+
+
+
+
+
+
+<table id="customers" align="center" >
+  <caption>Enter Details</caption>
+  <% form_for(@interview) do |f| %>
+   <%= f.error_messages %>
+    <tr>
+      <th>
+        <p>
+          <%= f.label :Name %><br />
+      </th>
+      <td>
+        <%= f.text_field :name %>
+        </p>
+      </td></tr>
+    <tr>
+      <th>
+        <p>
+          Total <%= f.label :Experience %><br />
+      </th>
+      <td>
+        <%= f.text_field :total_exp %>
+        </p>
+      </td></tr>  <tr><th>
+        <p>
+          <%= f.label :Skills %><br />
+      </th>
+      <td>
+
+        <%= select( "interview", "ror_exp", { "None" => "None" , "J2EE" => "J2EE", "JAVA" => "JAVA","asp.net" => "asp.net"}) %>
+
+        </p></td></tr>
+    <tr><th>
+        <p>
+          Date of <%= f.label :Interview %><br />
+      </th>
+      <td>
+       <input id="datepicker" type="text" size="30" name="interview[doi]">
+        </p></td></tr>
+    <tr><th>
+        <p>
+          Type/<%= f.label :Location %><br />
+      </th>
+      <td>
+        <%= f.text_field :type_location %>
+        </p></td></tr>
+    <tr><th>
+        <p>
+          Contact <%= f.label :Number  %><br />
+      </th>
+      <td>
+        <%= f.text_field :phoneNumber %>
+        </p></td></tr>
+    <tr><th>
+        <p>
+          <%= f.label :Remarks  %><br />
+      </th>
+      <td>
+        <%= f.text_area :remarks %>
+        </p></td></tr>
+    <tr><th>
+        <p>
+          <%= f.label :Email  %><br />
+      </th>
+      <td>
+        <%= f.text_field :email %>
+        </p></td></tr>
+    <tr><th>
+        <p>
+          <%= f.label :Status %><br />
+      </th>
+      <td>
+
+        <%= f.text_field :result %>
+        </td></tr>
+
+
+  </table>
+  <br></br><br></br>
+  <center><table id="customers">
+      <th>
+        <center><%= f.submit 'Create'%> </div>
+     </th>
+      <th>
+  <center><%= link_to '<input type="button" value="Back"', interviews_path %>
+      </th>
+    </table></center>
+
+<% end %>
+<h5>Interview Management System</h5>
+
+

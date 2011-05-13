@@ -1,0 +1,95 @@
+/* 
+    Document   : Application
+    Created on : Apr 28, 2011, 3:10:30 PM
+    Author     : Ankit Gupta-FIR
+    Description:
+        Purpose of the stylesheet follows.
+            Default for all the pages in the application and its table structure
+
+   TODO customize this sample style
+   Syntax recommendation http://www.w3.org/TR/REC-CSS2/
+*/
+
+#customers
+{
+    border-collapse: collapse;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+    text-align:center;
+}
+#customers caption
+{
+    text-align:center;
+    font-size:0.9em;
+    border:0.1px solid Grey;
+    padding:3px 7px 2px 7px;
+    background-color:#233C9B ;
+    color:#fff;
+}
+#customers td, #customers th
+{
+    text-align:left;
+    font-size:1.1em;
+    border:0.1px solid Grey;
+    padding:3px 7px 2px 7px;
+
+}
+#customers th
+{
+    font-size:0.9em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+    background-color:#233C9B;
+    color:#fff;
+}
+#customers td
+{
+    text-align:center;
+}
+.errorExplanation
+{
+
+    background-color: Grey;
+    width: 45%;
+    border:true;
+    border-color: Black;
+    border-style: solid dotted;
+
+}
+.errorExplanation li
+{
+    background-color: steelblue;
+    color:Yellow;
+}
+#copyright td
+{
+    background-color:#98AFC7;
+    color:#008;
+    padding-left: 2px;
+    padding-right: 2px;
+    padding-bottom: 2px;
+}
+#copyright td a
+{
+    color:black;
+    font-size: 1.1em;
+}
+#user li
+{
+    margin-left:  800px;
+   
+}
+#ui-datepicker-div
+{
+    background-color:#FEF2CF;
+    color:Black;
+    background-image: url(Images/cal.jpg);
+
+}
+#mainMenu li:hover
+{
+    background-color:#3e4d97;
+    color:#008;
+}

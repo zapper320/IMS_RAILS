@@ -1,0 +1,42 @@
+
+<center>
+  <table id="customers" rules="rows">
+    <tr>
+      <th>
+        Name
+      </th>
+      <th>
+        Upload File
+      </th>
+      <th>
+        Delete
+      </th>
+    </tr>
+    <% @interviews.each do |interview| %>
+      <tr>
+        <td>
+          <%= link_to "#{h interview.name}",interview %>
+        </td>
+        <td>
+          <%=  link_to image_tag("edit-icon.png", :alt => "Upload File", :title => "UPLOAD",:width => 20, :height => 20) ,:controller => "interviews", :action => "upload", :id => interview.id %>
+        </td>
+        <td>
+          <%=  link_to image_tag("Symbols Delete.png", :alt => "Delete", :title => "DELETE",:width => 20, :height => 25), interview, :confirm => 'Are you sure?', :method => :delete %>
+        </td>
+      </tr>
+    <% end %>
+
+  </table>
+  <table id="customers">
+    <th><center>
+        <%= will_paginate @interviews %>
+      </center></th></table>
+  <br></br>
+  <br></br>
+  <table id="customers">
+    <th><center>
+        <%= page_entries_info @interviews %>
+      </center>
+    </th>
+  </table>
+  <br />

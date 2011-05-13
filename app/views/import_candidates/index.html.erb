@@ -1,0 +1,30 @@
+
+<% form_for :csv_import, :url=>{ :controller=>"import_candidates", :action => 'csv_import'},
+  :html => { :multipart => true } do |f| %>
+  <center>
+    <table id="customers">
+      <caption>
+        <%= f.label :file, 'Import Participant file' %></caption>
+      <tr>
+        <td>
+          <center>
+            <%= f.file_field :file -%>
+            </p>
+        </td>
+      </tr>
+  </center>
+  <tr>
+    <th>
+      <center>
+        <p>
+          <%= submit_tag "Submit" %>
+        </p>
+    </th>
+  </tr>
+  </center>
+<% end %>
+<tr>
+  <td>
+  </td>
+</tr>
+</table>

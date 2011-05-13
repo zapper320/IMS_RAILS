@@ -1,0 +1,21 @@
+
+<center>
+<table id="customers">
+
+<% form_for @person do |f| %>
+  <tr><th>
+      <label for="person_name">Name:</label><br /></th><td>
+<%= f.text_field :name %><br /></td></tr><tr><th>
+  <label for="person_password">Password:</label><br /></th><td>
+<%= f.password_field :password %><br /></td></tr><tr><th>
+  
+  <label for="person_password_confirmation">Password Confirmation:</label><br /></th><td>
+<%= f.password_field :password_confirmation %><br /></td></tr></table>
+<center><table id="customers">
+  <th><center>
+  <%= submit_tag "Submit" %>
+  </th>
+</table>
+
+<% end %>
+

@@ -1,0 +1,23 @@
+<center>
+<% form_for @interview, :html => {:multipart => true}  do |f| %>
+  
+  <%= f.error_messages %>
+<table id="customers">
+<caption>Edit Details of <%=h @interview.name.upcase %></caption>
+ 
+  
+  <tr><th><center>
+    <%= f.label :Documents %><br /></th><td>
+    <%= file_field :attachment, :data, { :class => "required" } %>
+  </td></tr>
+</table>
+<table id="customers">
+  <tr><tr><th><center>
+<%= f.submit 'Upload' %>
+<%= link_to '<input type="button" value="Back"', interviews_path %>
+    </th></tr></tr>
+</table></center>
+
+
+
+<% end %>

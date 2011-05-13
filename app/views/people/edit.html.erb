@@ -1,0 +1,21 @@
+<%= error_messages_for :person %>
+<fieldset>
+  <legend>Edit Account</legend>
+  
+  <%= render :partial => 'form' %>
+  
+</fieldset>
+
+<br />
+<fieldset>
+  <legend>
+    Unregister Account
+  </legend>
+<center>
+<table id="customers">
+  <th><center>
+<%= button_to "Unregister", @person, :method => :delete,:confirm => "Are you sure?" %>
+  </th></center>
+</table>
+  <center>
+</fieldset>

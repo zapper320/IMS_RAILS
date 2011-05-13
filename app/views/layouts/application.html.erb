@@ -1,0 +1,83 @@
+
+<html>
+  <head>
+    <title>IMS</title>
+  </head>
+
+  <%= stylesheet_link_tag 'Application' %>
+  <%= javascript_include_tag "jquery-1.4.4.min.js","jquery-ui-1.8.12.custom.min"%>
+  <%= stylesheet_link_tag 'Style' %>
+  <%= stylesheet_link_tag 'main' %>
+  <%= stylesheet_link_tag 'jquery.ui.datepicker' %>
+  <body>
+
+
+
+
+    <!-- Main -->
+    <!--div id="main" class="box"-->
+    <div id="main" >
+<div id="main" >
+      
+      <!-- Header -->
+      <div id="header">
+        <!-- Logotyp -->
+
+        <h1 id="logo"> 	<span title="IMS (Go to homepage)" onclick="location.href='./'" style="cursor:pointer" >IMS</span></h1>
+        
+      </div>
+      
+      
+      <%= render :partial => 'common/tabs' %> 
+    </div>
+
+
+
+      <div id="user">
+        <% if @user %>
+        <li <%= 'id=active' unless params[:controller] != 'home'%>><td><%= "  User Logged In : #{@user.name.upcase}" %></td></table>
+      <% end %>
+      </div>
+
+
+      <!-- Page (2 columns) -->
+      <!--div id="page" class="box"-->
+      <div id="page">
+        <!--div id="page-in" class="box"-->
+        <div id="page-in" >
+
+          <div id="strip" class="box noprint">
+            <p id="sso"></p>
+            <strong>
+              <div>
+                  <%=yield%>
+              </div>
+            </strong>
+            <hr class="noscreen" />
+          </div> <!-- /strip -->
+
+          <!-- Content -->
+          <div id="content">
+            <!-- Article --><center> 
+              <!-- /article -->
+              <hr class="noscreen" />
+          </div> <!-- /content -->
+
+        
+
+        </div> <!-- /page-in -->
+
+      </div> <!-- /page -->
+
+      <!-- Footer -->
+      <div id="footer">
+        <div id="top" class="noprint"><p><span class="noscreen">Back on top</span> <a href="#header" title="Back on top ^">^<span></span></a></p></div>
+        <hr class="noscreen" />
+
+      </div> <!-- /footer -->
+
+    </div> <!-- /main -->
+
+
+  </body>
+</html>

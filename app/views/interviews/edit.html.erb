@@ -1,0 +1,58 @@
+<center>
+<% form_for @interview, :html => {:multipart => true}  do |f| %>
+  
+  <%= f.error_messages %>
+<table id="customers">
+<caption>Edit Details of <%=h @interview.name.upcase %></caption>
+ 
+  <tr><th>
+    <%= f.label :Name %><br /></th><td>
+    <%= f.text_field :name %>
+    </td></tr>
+  <tr><th>
+    Total <%= f.label :Experience %><br /></th><td>
+    <%= f.text_field :total_exp %>
+    </td></tr>
+  <tr><th>
+     <%= f.label :Skills %><br/></th><td>
+      <%= select( "interview", "ror_exp", { "None" => "None" , "J2EE" => "J2EE", "JAVA" => "JAVA","asp.net" => "asp.net"}) %>
+  </td></tr>
+  <tr><th>
+    Type <%= f.label :Location %><br /></th><td>
+    <%= f.text_field :type_location %>
+    </td></tr>
+  <tr><th>
+    Date of <%= f.label :Interview %><br /></th><td>
+    <%= f.text_field :doi %>
+    </td></tr>
+   <tr><th>
+    Contact<%= f.label :Number %><br /></th><td>
+    <%= f.text_field :phoneNumber %>
+    </td></tr>
+    <tr><th>
+    <%= f.label :Remarks %><br /></th><td>
+    <%= f.text_area :remarks %>
+    </td></tr>
+    <tr><th>
+    <%= f.label :Email %><br /></th><td>
+    <%= f.text_field :email %>
+    </td></tr>
+  <tr><th>
+    <%= f.label :Status %><br /></th><td>
+    <%= f.text_field :result %>
+  </td></tr>
+  <tr><th>
+    <%= f.label :Documents %><br /></th><td>
+    <%= file_field :attachment, :data, { :class => "required" } %>
+  </td></tr>
+</table>
+<table id="customers">
+  <tr><tr><th align="right">
+<%= f.submit 'Update' %>
+<%= link_to '<input type="button" value="Back"', interviews_path %>
+    </th></tr></tr>
+</table></center>
+
+
+
+<% end %>

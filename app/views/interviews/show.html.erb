@@ -1,0 +1,91 @@
+<table id="customers" align="center">
+  <caption>Showing Details of <%=h @interview.name.upcase %></caption>
+  <tr>
+    <th>
+
+      <b>Name:</b>
+    </th>
+    <td>
+      <%=h @interview.name %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Total Experience:</b>
+    </th>
+    <td>
+      <%=h @interview.total_exp %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Skills:</b>
+    </th>
+    <td>
+      <%=h @interview.ror_exp %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Date of Interview:</b>
+    </th>
+    <td>
+      <%=h @interview.doi %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Type/Location:</b>
+    </th>
+    <td>
+      <%=h @interview.type_location %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Contact Number:</b>
+    </th>
+    <td>
+      <%=h @interview.phoneNumber %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Remarks:</b>
+    </th>
+    <td>
+      <%=h @interview.remarks %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Email:</b>
+    </th>
+    <td>
+      <%=h @interview.email %>
+    </td>
+  </tr>
+  <tr>
+    <th>
+      <b>Status:</b>
+    </th>
+    <td>
+
+      <%=h @interview.result %>
+    </td>
+  </tr>
+  <tr></tr>
+  <tr>
+    <th><b>Documents Uploaded</b></th>
+    <td align="center"> <% @interview.attachments.each do |attachment| %>
+        <%= link_to "#{attachment.data_file_name.upcase}",  {:controller=>"attachments",:action=>"download",:id=>attachment.id} %>
+      <% end %><tr></tr>
+</td>
+</tr>
+<tr>
+  <td></td><td>
+    <%= link_to '<input type="button" value="Edit"', edit_interview_path(@interview) %>
+    <%= link_to '<input type="button" value="Back"', interviews_path %></td></tr></table>
+
+<h5></h5>
+

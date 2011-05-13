@@ -1,0 +1,32 @@
+
+<fieldset>
+  <legend>Login</legend>
+  <center>
+
+    <table id="customers">
+      <tr>
+        <% form_for @session do |f| %>
+          <th>
+            <label for="session_name">Name</label>
+          </th>
+          <td>
+            <%= f.text_field :name %>
+          </td>
+        </tr>
+        <tr>
+          <th>
+            <label for="session_password">Password
+            </label></th><td>
+            <%= f.password_field :password %>
+          </td>
+        </tr>
+      </table>
+      <center>
+        <table id="customers">
+          <th>
+            <center> <%= submit_tag "Login" %>
+          </th>
+        </table>
+      <% end %>
+        </fieldset>
+
