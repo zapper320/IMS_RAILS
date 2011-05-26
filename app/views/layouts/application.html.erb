@@ -1,42 +1,61 @@
-
-<html>
-  <head>
-    <title>IMS</title>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html><head>
+    <meta content="text/html; charset=UTF-8" http-equiv="Content-type">
+      <title>IMS</title>
+      <%= stylesheet_link_tag 'ims','form' %>
+      <%= stylesheet_link_tag 'ims_templates' %>
+      <%= stylesheet_link_tag "jquery-ui", "application" %>
+      <%= javascript_include_tag "jquery.min", "jquery-ui.min", "application" %>
+      <%= stylesheet_link_tag 'Style' %>
+      <%= stylesheet_link_tag 'main' %>
   </head>
-
-  <%= stylesheet_link_tag 'Application' %>
-  <%= javascript_include_tag "jquery-1.4.4.min.js","jquery-ui-1.8.12.custom.min"%>
-  <%= stylesheet_link_tag 'Style' %>
-  <%= stylesheet_link_tag 'main' %>
-  <%= stylesheet_link_tag 'jquery.ui.datepicker' %>
-  <body>
-
+  <body bgcolor="#F0F0FF">
 
 
 
     <!-- Main -->
     <!--div id="main" class="box"-->
     <div id="main" >
-<div id="main" >
-      
-      <!-- Header -->
-      <div id="header">
-        <!-- Logotyp -->
+      <div id="main" >
 
-        <h1 id="logo"> 	<span title="IMS (Go to homepage)" onclick="location.href='./'" style="cursor:pointer" >IMS</span></h1>
-        
+        <!-- Header -->
+        <div id="header">
+          <!-- Logotyp -->
+
+          <h1 id="logo"> 	<span title="IMS (Go to homepage)" onclick="location.href='./'" style="cursor:pointer" >   Interview Management System</span></h1>
+
+        </div>
+
+
+
       </div>
-      
-      
-      <%= render :partial => 'common/tabs' %> 
-    </div>
 
 
 
       <div id="user">
+        <div id="tabs" class="noprint">
+
+          <ul class="box" id="mainMenu">
+            <li <%= 'id=active' unless params[:controller] != 'home'%>>
+              <%= link_to 'View All Candidates', interviews_path%>
+            </li>
+            <li <%= 'id=active' unless params[:controller] != 'home'%>>
+
+              <%= link_to 'Import Data via CSV File', csv_upload_interviews_url%>
+            </li>
+            <li <%= 'id=active' unless params[:controller] != 'home'%>>
+              <%= link_to 'Users', users_url if @user.role=="SuperAdmin"%>
+            </li>
+            <li <%= 'id=active' unless params[:controller] != 'home'%>>
+              <%= link_to 'Logout', logout_url%>
+            </li>
+
+          </ul>
+          
+        </div>
         <% if @user %>
-        <li <%= 'id=active' unless params[:controller] != 'home'%>><td><%= "  User Logged In : #{@user.name.upcase}" %></td></table>
-      <% end %>
+        <label id="username">User Logged In : <%= @user.firstname%> <%= @user.lastname %> </label>
+        <% end %>
       </div>
 
 
@@ -50,20 +69,20 @@
             <p id="sso"></p>
             <strong>
               <div>
-                  <%=yield%>
+
               </div>
             </strong>
             <hr class="noscreen" />
           </div> <!-- /strip -->
-
+          <%=yield%>
           <!-- Content -->
           <div id="content">
-            <!-- Article --><center> 
+            <!-- Article --><center>
               <!-- /article -->
               <hr class="noscreen" />
           </div> <!-- /content -->
 
-        
+
 
         </div> <!-- /page-in -->
 
@@ -81,3 +100,9 @@
 
   </body>
 </html>
+
+
+</div>
+
+
+</body></html>

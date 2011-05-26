@@ -3,29 +3,25 @@
   <h3 class="noscreen">Navigation</h3>
   <ul class="box" id="mainMenu">
     <% if @user %>
-    <li <%= 'id=active' unless params[:controller] != 'home'%>><%=  link_to('Home',:controller => "candidate", :action => "index")%>
-    <% else %>
+      <li <%= 'id=active' unless params[:controller] != 'home'%>><%=  link_to('Home',:controller => "candidate", :action => "index")%>
+      <% else %>
       <li <%= 'id=active' unless params[:controller] != 'home'%>><%=  link_to('Home',:controller => "sessions")%>
-  <% end %>
-  <% if @user %>
-    <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('New Candidate', new_interview_path) %>
-    <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('Import CSV',:controller => 'import_candidates') %>
-    <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('View All Candidates Details',:controller => 'interviews') %>
-  <% end %>
-  <% if @user %>
-      <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('Account Settings',edit_person_path('account')) %>
+      <% end %>
+      <% if @user %>
+      <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('New Candidate', new_interview_path) %>
+      <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('Import CSV',:controller => 'import_candidates') %>
+      <li <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to('View All Candidates Details',:controller => 'interviews') %>
+      <li style="margin-left: 250px" <%= 'id=active' unless params[:controller] != 'home'%>><%= link_to("#{@user.name.upcase}",edit_person_path('account')) %>
       <li <%= 'id=active' unless params[:controller] != 'home'%>> <%= link_to('Logout',@application_session, :method => :delete) %>
       <% else %>
       <li <%= 'id=active' unless params[:controller] != 'home'%>> <%= link_to('Login',new_session_path )%>
       <li <%= 'id=active' unless params[:controller] != 'home'%>><a href="/people/new">Register</a>
       <% end %>
+
       <!li <%#= 'id=active' unless params[:controller] != 'timesheets'%->><%#=link_to "Timesheets <span class='tab-l'></span><span class='tab-r'></span>", timesheets_url%></li-->
     <li <%= 'id=active' unless params[:controller] != 'home'%>>
-    
-      <% if @user %>
-        <li <%= 'id=active' unless params[:controller] != 'home'%>><td><%= "  User Logged In : #{@user.name.upcase}" %></td></table>
-      <% end %>
-  
+
+
   </ul>
   <hr class="noscreen" />
 </div> <!-- /tabs -->

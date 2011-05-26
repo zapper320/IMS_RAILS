@@ -1,0 +1,36 @@
+#login
+{
+    border-collapse: collapse;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:20%;
+    border-collapse:collapse;
+    text-align:left;
+}
+#login td, #login th
+{
+    text-align:left;
+    font-size:1.1em;
+    border:0.1px solid Grey;
+    padding:3px 7px 2px 7px;
+
+}
+#login th
+{
+    font-size:0.9em;
+    text-align:left;
+    padding-top:5px;
+    padding-bottom:4px;
+
+}
+#login td
+{
+    text-align:left;
+}
+#userMenu
+{
+    border-collapse: collapse;
+    font-family:"Trebuchet MS", Arial, Helvetica, sans-serif;
+    width:100%;
+    border-collapse:collapse;
+    text-align:Right;
+}

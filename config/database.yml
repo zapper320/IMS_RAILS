@@ -1,16 +1,7 @@
 # MySQL.  Versions 4.1 and 5.0 are recommended.
 #
 # Install the MySQL driver:
-#   gem install mysql
-# On Mac OS X:
-#   sudo gem install mysql -- --with-mysql-dir=/usr/local/mysql
-# On Mac OS X Leopard:
-#   sudo env ARCHFLAGS="-arch i386" gem install mysql -- --with-mysql-config=/usr/local/mysql/bin/mysql_config
-#       This sets the ARCHFLAGS environment variable to your native architecture
-# On Windows:
-#   gem install mysql
-#       Choose the win32 build.
-#       Install MySQL and put its /bin directory on your path.
+#   gem install mysql2
 #
 # And be sure to use new-style password hashing:
 #   http://dev.mysql.com/doc/refman/5.0/en/old-client.html
@@ -18,10 +9,10 @@ development:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: IMS_RAILS_development
+  database: IMS_rails3_development
   pool: 5
   username: root
-  password: 
+  password:
   host: localhost
 
 # Warning: The database defined as "test" will be erased and
@@ -31,7 +22,7 @@ test:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: IMS_RAILS_test
+  database: IMS_rails3_test
   pool: 5
   username: root
   password:
@@ -41,7 +32,7 @@ production:
   adapter: mysql
   encoding: utf8
   reconnect: false
-  database: IMS_RAILS_production
+  database: IMS_rails3_production
   pool: 5
   username: root
   password:

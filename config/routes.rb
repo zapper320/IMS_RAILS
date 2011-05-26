@@ -1,61 +1,82 @@
-ActionController::Routing::Routes.draw do |map|
-  map.root :controller => 'people'
-  map.resources :people
-
-  map.resources :sessions
-
-  map.resources :attachments
-
-  map.resources :import_candidates
-
-  map.resources :import_participants
-
-  map.resources :import_participants
-
+IMSRails3::Application.routes.draw do
   
+  resources :users do
+    collection  do
+      post 'verify_login'
+      get 'search'
+    end
+  end
 
+  resources :interviews do
+    collection do
+      get 'csv_upload'
+      post 'import_csv'      
+      get 'search'
+    end    
+  end
+  match 'interview/:id/download_attachment/:attachment_id' => "interviews#download_attachment",:as=>"download_attachment"
+  match 'interview/upload_personal_doc/:id' => "interviews#upload_personal_doc",:as=>"upload_personal_doc"
 
-  map.resources :interviews , :collection => {:upload => :get}
-  map.resources :import_participants
-  # The priority is based upon order of creation: first created -> highest priority.
+  match 'interview/import_personal_doc/:id' => "interviews#import_personal_doc",:as=>"import_personal_doc"
+  match 'interview/index' => "interviews#get_content_to_display",:as=>"get_content_to_display"
+
+  match 'logout' => "users#logout",:as=>"logout"
+  root :to => "users#login"
+  
+  # The priority is based upon order of creation:
+  # first created -> highest priority.
 
   # Sample of regular route:
-  #   map.connect 'products/:id', :controller => 'catalog', :action => 'view'
+  #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
   # Sample of named route:
-  #   map.purchase 'products/:id/purchase', :controller => 'catalog', :action => 'purchase'
+  #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
   # This route can be invoked with purchase_url(:id => product.id)
 
   # Sample resource route (maps HTTP verbs to controller actions automatically):
-  #   map.resources :products
+  #   resources :products
 
   # Sample resource route with options:
-  #   map.resources :products, :member => { :short => :get, :toggle => :post }, :collection => { :sold => :get }
+  #   resources :products do
+  #     member do
+  #       get 'short'
+  #       post 'toggle'
+  #     end
+  #
+  #     collection do
+  #       get 'sold'
+  #     end
+  #   end
 
   # Sample resource route with sub-resources:
-  #   map.resources :products, :has_many => [ :comments, :sales ], :has_one => :seller
-  
+  #   resources :products do
+  #     resources :comments, :sales
+  #     resource :seller
+  #   end
+
   # Sample resource route with more complex sub-resources
-  #   map.resources :products do |products|
-  #     products.resources :comments
-  #     products.resources :sales, :collection => { :recent => :get }
+  #   resources :products do
+  #     resources :comments
+  #     resources :sales do
+  #       get 'recent', :on => :collection
+  #     end
   #   end
 
   # Sample resource route within a namespace:
-  #   map.namespace :admin do |admin|
-  #     # Directs /admin/products/* to Admin::ProductsController (app/controllers/admin/products_controller.rb)
-  #     admin.resources :products
+  #   namespace :admin do
+  #     # Directs /admin/products/* to Admin::ProductsController
+  #     # (app/controllers/admin/products_controller.rb)
+  #     resources :products
   #   end
 
-  # You can have the root of your site routed with map.root -- just remember to delete public/index.html.
- 
+  # You can have the root of your site routed with "root"
+  # just remember to delete public/index.html.
+  # root :to => "welcome#index"
 
   # See how all your routes lay out with "rake routes"
 
-  # Install the default routes as the lowest priority.
-  # Note: These default routes make all actions in every controller accessible via GET requests. You should
-  # consider removing or commenting them out if you're using named routes and resources.
-  map.connect ':controller/:action/:id'
-  map.connect ':controller/:action/:id.:format'
+  # This is a legacy wild controller route that's not recommended for RESTful applications.
+  # Note: This route will make all actions in every controller accessible via GET requests.
+  # match ':controller(/:action(/:id(.:format)))'
 end
